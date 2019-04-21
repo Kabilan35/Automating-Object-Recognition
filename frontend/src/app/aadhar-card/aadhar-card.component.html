@@ -1,0 +1,112 @@
+<div class="row">
+  <div >
+    <div class="panel panel-primary">
+      <div class="panel-heading">Get tags</div>
+      <div class="panel-body">
+
+        <form [formGroup]="getAadharForm" (ngSubmit)="getAadhar()" class="form">
+          <div class="form-group">
+            <label for="url">URL:</label>
+            <input type="text" class="form-control" formControlName="url" id="url">
+            <!-- <span id="aadharNumberError" class="text-danger" *ngIf="!getAadharForm.controls.aadharNumber.valid && getAadharForm.controls.aadharNumber.dirty">Should not be empty</span> -->
+          </div>
+          <div class="form-group">
+              <button class="btn btn-success" type="submit" [disabled]="!getAadharForm.valid" >Get Details</button>
+            <button class="btn btn-primary" type="button" [disabled]="!getAadharForm.valid" (click)="getxpaths()">Get tags and xpaths</button>
+   
+    
+            <button class="btn btn-primary" type="button" [disabled]="!getAadharForm.valid" (click)="getelements()">Get tags and elements</button>
+          </div>
+        </form>
+        <div class="text-success">{{x}}</div>
+        <!-- <div *ngIf = "elements">
+          {{arrOfElements}}
+        </div> -->
+        <!-- <div *ngIf ="xpath">
+        {{aarrOfXpath}}
+        </div> -->
+
+       
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<br>
+<br>
+        <!-- <table border="1">
+          
+            <tr *ngFor="let row of arrOfkeys"><td>{{row}}</td></tr>
+            <tr *ngFor="let row1 of aarrOfvalues"><td>{{row1}}</td></tr>
+        </table> -->
+   
+
+        <div class="col-md-12" *ngIf="elements" >
+          <table class="table table-bordered ">
+              <thead>
+                  <tr>
+                      <th>Name</th>
+                      <th>Tag Name</th>
+                     
+                    
+                  </tr>
+              </thead>
+              <tbody>
+                <td>
+                    <tr  *ngFor="let row of tableelements" >{{row}}</tr>
+                </td>
+                  <td>
+                      <tr  *ngFor="let row of tablenames" >{{row}}</tr>
+                  </td>
+                  
+              </tbody>
+          </table>
+
+
+
+          
+       
+          <!-- <table class="table table-striped">
+              <thead>
+                  <tr>
+                      <th>Values</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr  *ngFor="let row of aarrOfvalues" >{{row}}</tr>
+              </tbody>
+          </table> -->
+        </div>
+
+        <div class="col-md-12" *ngIf="xpath" >
+            <table class="table table-bordered ">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Xpath</th>
+                       
+                      
+                    </tr>
+                </thead>
+                <tbody>
+                  <td>
+                      <tr  *ngFor="let row of tableelements" >{{row}}</tr>
+                  </td>
+                    <td>
+                        <tr  *ngFor="let row of tablenames" >{{row}}</tr>
+                    </td>
+                    
+                </tbody>
+            </table>
+  
+  </div>
+
+        <!-- {{myJSON}} -->
+        <div *ngIf="errorMessage!=null">
+          <span class="text-danger">{{errorMessage}}</span>
+        </div>
+        <div *ngIf="successMessage!=null">
+          <span class="text-success">{{successMessage}}</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
