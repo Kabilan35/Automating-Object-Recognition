@@ -2,6 +2,7 @@
 
 Requirements
 Angular - https://angular.io/guide/quickstart
+
 SpringBoot - https://spring.io/guides/gs/spring-boot/ (Eclipse)
 
 FRONTEND
